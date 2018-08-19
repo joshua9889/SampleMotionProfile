@@ -3,7 +3,8 @@ package com.team9889.lib.control.MotionProfiling;
 import com.team9889.lib.Logger;
 
 /**
- * Created by joshua9889 on 7/16/2018.
+ * @author joshua9889
+ * @version 7.16.18
  *
  * See https://www.desmos.com/calculator/y5dfaz9vlr for a graph of the equations being implemented.
  */
@@ -41,8 +42,12 @@ public class TrapezoidalMotionProfile implements MotionProfile {
         log.close();
     }
 
-    @Override
-    public void calculate(double setpoint, double max_v, double max_a) {
+    /**
+     * @see MotionProfile.java
+     */
+    @Override 
+    public void calculate(double setpoint, double max_v, double max_a) 
+    {
         if(setpoint<0)
             direction = -1.0;
         else
@@ -58,6 +63,9 @@ public class TrapezoidalMotionProfile implements MotionProfile {
         timeToCruise = totalTime-timeToAcc;
     }
 
+    /**
+     * @see MotionProfile.java
+     */
     @Override
     public double[] getOutput(double t) {
         double Position, Velocity, Acceleration;
@@ -94,6 +102,10 @@ public class TrapezoidalMotionProfile implements MotionProfile {
         return new double[]{Position, Velocity, Acceleration};
     }
 
+    /**
+     * @see MotionProfile.java
+     */
+    @Override
     public double getTotalTime(){
         return totalTime;
     }

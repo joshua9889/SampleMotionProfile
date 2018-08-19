@@ -6,15 +6,19 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 
 /**
- * Created by joshua9889 on 4/5/2018.
+ * @author joshua9889
+ * @version 4.5.18
  *
- * Class to log data quickly
+ * Class to log data quickly in any format
  */
 
 public class Logger {
     private FileOutputStream logger = null;
     private Charset charset;
 
+    /**
+     * @param filename The file name. wow.
+     */
     public Logger(String fileName){
         charset = Charset.forName("US-ASCII");
         try {
@@ -24,6 +28,9 @@ public class Logger {
         }
     }
 
+    /**
+     * @param object Data to write to a file.
+     */
     public void write(Object object){
         String printString = String.valueOf(object) + "\n";
         try {
@@ -33,6 +40,9 @@ public class Logger {
         }
     }
 
+    /**
+     * Close the file
+     */
     public void close(){
         try {
             logger.close();

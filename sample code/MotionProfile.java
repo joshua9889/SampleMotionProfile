@@ -1,8 +1,10 @@
 package com.team9889.lib.control.MotionProfiling;
 
 /**
- * Created by joshua9889 on 6/28/2018.
+ * @author joshua9889
+ * @version 6.28.18
  *
+ * Interface for motion profiles. Allows for the use of different types easily.
  */
 
 public interface MotionProfile {
@@ -20,4 +22,6 @@ public interface MotionProfile {
      * @return  [position, velocity, acceleration]
      */
     double[] getOutput(double t);
+
+    double getTotalTime();
 }
