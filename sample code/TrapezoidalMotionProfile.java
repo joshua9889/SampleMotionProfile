@@ -60,7 +60,7 @@ public class TrapezoidalMotionProfile implements MotionProfile {
         // This is in absolute time
         timeToAcc = (max_v/max_a);
         totalTime = (max_v/max_a)+(this.setpoint/max_v);
-        timeToCruise = totalTime-timeToAcc;
+        timeToCruise = this.setpoint/max_v;
     }
 
     /**
@@ -81,11 +81,8 @@ public class TrapezoidalMotionProfile implements MotionProfile {
             Acceleration = 0;
 
         } else if(t<=totalTime){
-            Position = (totalTime * max_v) +
-                    (totalTime * max_a * t) -
-                    (Math.pow(max_v, 2) / max_a) -
+            Position = (totalTime * max_v) + (totalTime * max_a * t) - (Math.pow(max_v, 2) / max_a) -
                     (0.5 * ((max_a * t*t) + (max_a * totalTime * totalTime)));
-
             Velocity = (max_a * totalTime) - (max_a * t);;
             Acceleration = -max_a;
 
